@@ -78,6 +78,7 @@ class _GuitarAppState extends State<GuitarApp> with TickerProviderStateMixin{
 @override
   void dispose() {
     _transformAnimationController?.dispose();
+    _slideAnimationController?.dispose();
     super.dispose();
   }
 
@@ -90,7 +91,7 @@ class _GuitarAppState extends State<GuitarApp> with TickerProviderStateMixin{
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      
+      backgroundColor: _backgroundColor,
       body: Stack(
         children: [
           Positioned(
@@ -119,6 +120,14 @@ class _GuitarAppState extends State<GuitarApp> with TickerProviderStateMixin{
             child: Container(
               color: Colors.amber,
               child: Placeholder(),
+            ),
+          ),
+          //appbar
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Container(
             ),
           ),  
         ],
